@@ -46,7 +46,7 @@ public class Supplier
      */
     public String getPhoneNumber()
     {
-        return 0;
+        return "";
     }
     /**
      * Method getCity()
@@ -58,36 +58,31 @@ public class Supplier
     /**
      * Method setId()
      */
-    public int setId()
+    public void setId(int id)
     {
-        return 0;
     }
     /**
      * Method setName()
      */
-    public String setName()
+    public void setName(String name)
     {
-        return "";
     }
     /**
      * Method setEmail()
      */
-    public String setEmail()
+    public void setEmail(String email)
     {
-        return "";
     }
     /**
      * Method setPhoneNumber()
      */
-    public String setPhoneNumber()
+    public void setPhoneNumber(String phoneNumber)
     {
-        return "";
     }
     /**
      * Method setCity()
      */
-    public String setCity()
+    public void setCity(String city)
     {
-        return "";
     }
 }

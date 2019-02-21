@@ -49,29 +49,25 @@ public class Invoice
     /**
      * Method setId()
      */
-    public int setId()
+    public void setId(int id)
     {
-        return 0;
     }
     /**
      * Method setIdItem()
      */
-    public int setIdItem()
+    public void setIdItem(int idItem)
     {
-        return 0;
     }
     /**
      * Method setDate()
      */
-    public String setDate()
+    public void setDate(String Date)
     {
-        return "";
     }
     /**
      * Method setTotalPrice()
      */
-    public int setTotalPrice()
+    public void setTotalPrice(int totalPrice)
     {
-        return 0;
     }
 }

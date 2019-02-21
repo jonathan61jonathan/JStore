@@ -57,29 +57,25 @@ public class Item
     /**
      * Method setId()
      */
-    public int setId()
+    public void setId(int id)
     {
-        return 0;
     }
     /**
      * Method setName()
      */
-    public String setName()
+    public void setName(String name)
     {
-        return "";
     }
     /**
      * Method setPrice()
      */
-    public int setPrice()
+    public void setPrice(int price)
     {
-        return 0;
     }
     /**
      * Method setCategory()
      */
-    public String setCategory()
+    public void setCategory(String category)
     {
-        return "";
     }
 }
