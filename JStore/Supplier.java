@@ -3,7 +3,7 @@
  * Implementasi UML Modul 1 class Supplier
  *
  * @author Jonathan
- * @version 0.1
+ * @version 0.10
  */
 public class Supplier
 {
@@ -46,7 +46,7 @@ public class Supplier
      */
     public String getPhoneNumber()
     {
-        return "";
+        return 0;
     }
     /**
      * Method getCity()

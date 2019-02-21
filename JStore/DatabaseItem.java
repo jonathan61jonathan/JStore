@@ -3,7 +3,7 @@
  * Implementasi UML Modul 1 class DatabaseItem
  *
  * @author Jonathan
- * @version 0.1
+ * @version 0.10
  */
 public class DatabaseItem
 {
