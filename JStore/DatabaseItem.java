@@ -1,14 +1,19 @@
 /**
- * Implementasi UML Modul 1 class DatabaseItem
+ * Implementasi UML Modul 2 class DatabaseItem
+ * kelas bertujuan mengumpulkan data
  *
  * @author Jonathan
- * @version 0.20
+ * @version 28022019
  */
 public class DatabaseItem
 {
     // variables
     private String[] listItem;
     private Item item;
+    
+    /*
+     * Dibawah ini merupakan method yang bisa diapnggil
+     */
 
     /**
      * Method addItem()
@@ -26,6 +31,7 @@ public class DatabaseItem
     }
     /**
      *  Method getItem()
+     *  @return item
      */
     public Item getItem()
     {
@@ -33,6 +39,7 @@ public class DatabaseItem
     }
     /**
      * Method getItemDatabase()
+     * @return listItem
      */
     public String[] getItemDatabase()
     {

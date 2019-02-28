@@ -1,8 +1,9 @@
 /**
- * Implementasi UML Modul 1 class Location
+ * Implementasi UML Modul 2 class Location
+ * kelas bertujuan untuk menyimpan location
  *
  * @author Jonathan
- * @version 0.20
+ * @version 28022019
  */
 public class Location
 {
@@ -10,6 +11,11 @@ public class Location
     private String province;
     private String description;
     private String city;
+    
+    /*
+     * Dibawah ini merupakan method yang bisa diapnggil
+     */
+    
     /**
      * Constructor for objects of class Invoice
      */
@@ -21,6 +27,7 @@ public class Location
     }
     /**
      * Method getProvince()
+     * @return province
      */
     public String getProvince()
     {
@@ -28,6 +35,7 @@ public class Location
     }
     /**
      *  Method getCity()
+     *  @return city
      */
     public String getCity()
     {
@@ -35,6 +43,7 @@ public class Location
     }
     /**
      *  Method getDescription()
+     *  @return description
      */
     public String getDescription()
     {
@@ -42,6 +51,7 @@ public class Location
     }
     /**
      *  Method setProvince(String province) 
+     *  @param province
      */
     public void setProvince(String province)
     {
@@ -49,6 +59,7 @@ public class Location
     }
     /**
      *  Method setCity()
+     *  @param city
      */
     public void setCity(String city)
     {
@@ -56,6 +67,7 @@ public class Location
     }
     /**
      *  Method setDescription()
+     *  @param description
      */
     public void setDescription(String description)
     {
@@ -63,6 +75,7 @@ public class Location
     }
     /**
      *  Method printData()
+     *  mencetak nama provinsi
      */
     public void printData()
     {

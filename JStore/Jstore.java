@@ -1,8 +1,9 @@
 /**
- * Implementasi UML Modul 1 class Jstore
+ * Implementasi UML Modul 2 class Jstore
+ * kelas bertujuan untuk memanggil seluruh kelas lainya
  *
  * @author Jonathan
- * @version 0.20
+ * @version 28022019
  */
 public class Jstore
 {

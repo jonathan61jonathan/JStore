@@ -1,15 +1,20 @@
 /**
- * Implementasi UML Modul 1 class DatabaseSupplier
+ * Implementasi UML Modul 2 class DatabaseSupplier
+ * kelas berujuan untuk mengumpulkan supplier
  *
  * @author Jonathan
- * @version 0.20
+ * @version 28022019
  */
 public class DatabaseSupplier
 {
     // variables
     private String[] listSupplier;
     private Supplier supplier;
-
+    
+    /*
+     * Dibawah ini merupakan method yang bisa diapnggil
+     */
+    
     /**
      * Method addItem()
      */
@@ -25,6 +30,7 @@ public class DatabaseSupplier
     }
     /**
      *  Method getSupplier()
+     *  @return supplier
      */
     public Supplier getSupplier()
     {
@@ -32,6 +38,7 @@ public class DatabaseSupplier
     }
     /**
      * Method getListSupplier()
+     * @return listSupplier
      */
     public String[] getListSupplier()
     {

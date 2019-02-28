@@ -1,8 +1,9 @@
 /**
- * Implementasi UML Modul 1 class Item
+ * Implementasi UML Modul 2 class Item
+ * Kelas bertujuna untuk menyimpan item.
  *
  * @author Jonathan
- * @version 0.20
+ * @version 28022019
  */
 public class Item
 {
@@ -13,6 +14,10 @@ public class Item
     private int price;
     private String category;
     private Supplier supplier;
+    
+    /*
+     * Dibawah ini merupakan method yang bisa diapnggil
+     */
 
     /**
      * Constructor for objects of class Item
@@ -21,12 +26,14 @@ public class Item
     {
         this.id = id;
         this.name = name;
+        this.price = price;
         this.stock = stock;
         this.category = category;
         this.supplier = supplier;
     }
     /**
      * Method getId
+     * @return id
      */
     public int getId()
     {
@@ -34,6 +41,7 @@ public class Item
     }
     /**
      * Method getName()
+     * @return name
      */
     public String getName()
     {
@@ -41,6 +49,7 @@ public class Item
     }
     /**
      * Method getStock()
+     * @return stock
      */
     public int getStock()
     {
@@ -48,6 +57,7 @@ public class Item
     }
     /**
      * Method getPrice()
+     * @return price
      */
     public int getPrice()
     {
@@ -55,6 +65,7 @@ public class Item
     }
     /**
      * Method getCategory()
+     * @return category
      */
     public String getCategory()
     {
@@ -62,6 +73,7 @@ public class Item
     }
     /**
      * Method getSupplier()
+     * @return supplier
      */
     public Supplier getSupplier()
     {
@@ -69,6 +81,7 @@ public class Item
     }
     /**
      * Method setId()
+     * @param id
      */
     public void setId(int id)
     {
@@ -76,6 +89,7 @@ public class Item
     }
     /**
      * Method setName()
+     * @param name
      */
     public void setName(String name)
     {
@@ -83,6 +97,7 @@ public class Item
     }
     /**
      * Method setPrice()
+     * @param price
      */
     public void setPrice(int price)
     {
@@ -90,6 +105,7 @@ public class Item
     }
     /**
      * Method setCategory()
+     * @param category
      */
     public void setCategory(String category)
     {
@@ -97,6 +113,7 @@ public class Item
     }
     /**
      *  Method setSupplier()
+     *  @param supplier
      */
     public void setSupplier(Supplier supplier)
     {
@@ -104,6 +121,7 @@ public class Item
     }
     /**
      *  Method printData()
+     *  mecetak nama dari item
      */
     public void printData()
     {

@@ -1,8 +1,9 @@
 /**
- * Implementasi UML Modul 1 class Invoice
+ * Implementasi UML Modul 2 class Invoice
+ * kelas bertujuan untuk menyimpan dan mencetak invoice
  *
  * @author Jonathan
- * @version 0.20
+ * @version 28022019
  */
 public class Invoice
 {
@@ -11,6 +12,11 @@ public class Invoice
     private Item item;
     private String date;
     private int totalPrice;
+    
+    /*
+     * Dibawah ini merupakan method yang bisa diapnggil
+     */
+    
     /**
      * Constructor for objects of class Invoice
      */
@@ -23,6 +29,7 @@ public class Invoice
     }
     /**
      * Method getId
+     * @return id
      */
     public int getId()
     {
@@ -30,6 +37,7 @@ public class Invoice
     }
     /**
      * Method getItem()
+     * @return item
      */
     public Item getItem()
     {
@@ -37,6 +45,7 @@ public class Invoice
     }
     /**
      * Method getDate()
+     * @return date
      */
     public String getDate()
     {
@@ -44,6 +53,7 @@ public class Invoice
     }
     /**
      * Method getTotalPrice()
+     * @return totalPrice
      */
     public int getTotalPrice()
     {
@@ -51,6 +61,7 @@ public class Invoice
     }
     /**
      * Method setId()
+     * @param id
      */
     public void setId(int id)
     {
@@ -58,6 +69,7 @@ public class Invoice
     }
     /**
      * Method setItem()
+     * @param item
      */
     public void setItem(int idItem)
     {
@@ -65,6 +77,7 @@ public class Invoice
     }
     /**
      * Method setDate()
+     * @param date
      */
     public void setDate(String date)
     {
@@ -72,6 +85,7 @@ public class Invoice
     }
     /**
      * Method setTotalPrice()
+     * @param totalPrice
      */
     public void setTotalPrice(int totalPrice)
     {
@@ -79,6 +93,7 @@ public class Invoice
     }
     /**
      *  Method printData()
+     *  mencetak total price
      */
     public void printData()
     {

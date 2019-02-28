@@ -1,8 +1,9 @@
 /**
- * Implementasi UML Modul 1 class Supplier
+ * Implementasi UML Modul 2 class Supplier
+ * kelas bertujuan untuk menyimpan data supplier.
  *
  * @author Jonathan
- * @version 0.20
+ * @version 28022019
  */
 public class Supplier
 {
@@ -12,6 +13,10 @@ public class Supplier
     private String email;
     private String phoneNumber;
     private Location location;
+    
+    /*
+     * Dibawah ini merupakan method yang bisa diapnggil
+     */
 
     /**
      * Constructor for objects of class Item
@@ -25,6 +30,7 @@ public class Supplier
     }
     /**
      * Method getId
+     * @return id
      */
     public int getId()
     {
@@ -32,6 +38,7 @@ public class Supplier
     }
     /**
      * Method getName()
+     * @return name
      */
     public String getName()
     {
@@ -39,6 +46,7 @@ public class Supplier
     }
     /**
      * Method getEmail()
+     * @return email
      */
     public String getEmail()
     {
@@ -46,6 +54,7 @@ public class Supplier
     }
     /**
      * Method getPhoneNumber()
+     * @return phoneNumber
      */
     public String getPhoneNumber()
     {
@@ -53,6 +62,7 @@ public class Supplier
     }
     /**
      * Method getLocation()
+     * @return location
      */
     public Location getLocation()
     {
@@ -60,6 +70,7 @@ public class Supplier
     }
     /**
      * Method setId()
+     * @param id
      */
     public void setId(int id)
     {
@@ -67,6 +78,7 @@ public class Supplier
     }
     /**
      * Method setName()
+     * @param name
      */
     public void setName(String name)
     {
@@ -74,6 +86,7 @@ public class Supplier
     }
     /**
      * Method setEmail()
+     * @param email
      */
     public void setEmail(String email)
     {
@@ -81,6 +94,7 @@ public class Supplier
     }
     /**
      * Method setPhoneNumber()
+     * @param phoneNumber
      */
     public void setPhoneNumber(String phoneNumber)
     {
@@ -88,6 +102,7 @@ public class Supplier
     }
     /**
      *  Method setLocation()
+     *  @param location
      */
     public void setLocation(Location location)
     {
@@ -95,6 +110,7 @@ public class Supplier
     }
     /**
      *  Method printData()
+     *  mencetak nama dari supplier
      */
     public void printData()
     {
