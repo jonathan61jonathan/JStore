@@ -1,37 +1,41 @@
-
 /**
  * Implementasi UML Modul 1 class DatabaseItem
  *
  * @author Jonathan
- * @version 0.10
+ * @version 0.20
  */
 public class DatabaseItem
 {
     // variables
     private String[] listItem;
+    private Item item;
 
-    /**
-     * Constructor for objects of class DatabaseItem
-     */
-    public DatabaseItem()
-    {
-    }
     /**
      * Method addItem()
      */
-    public void addItem()
+    public boolean addItem()
     {
+        return false;
     }
     /**
      * Method removeItem()
      */
-    public void removeItem()
+    public boolean removeItem()
     {
+        return false;
+    }
+    /**
+     *  Method getItem()
+     */
+    public Item getItem()
+    {
+        return item;
     }
     /**
      * Method getItemDatabase()
      */
-    public void getItemDatabase()
+    public String[] getItemDatabase()
     {
+        return listItem;
     }
 }

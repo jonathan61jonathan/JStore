@@ -1,9 +1,8 @@
-
 /**
  * Implementasi UML Modul 1 class Jstore
  *
  * @author Jonathan
- * @version 0.10
+ * @version 0.20
  */
 public class Jstore
 {
@@ -16,7 +15,7 @@ public class Jstore
     /**
      * Main Method
      */
-    public void main()
+    public void main(String args[])
     {
     }
 }

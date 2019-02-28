@@ -1,73 +1,87 @@
-
 /**
  * Implementasi UML Modul 1 class Invoice
  *
  * @author Jonathan
- * @version 0.10
+ * @version 0.20
  */
 public class Invoice
 {
     // variables
-    protected int id;
-    protected int idItem;
-    protected String date;
-    protected int totalPrice;
+    private int id;
+    private Item item;
+    private String date;
+    private int totalPrice;
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice()
+    public Invoice(int id, Item item, String date, int totalPrice)
     {
+        this.id = id;
+        this.item = item;
+        this.date = date;
+        this.totalPrice = totalPrice;
     }
     /**
      * Method getId
      */
     public int getId()
     {
-        return 0;
+        return id;
     }
     /**
-     * Method getIdItem()
+     * Method getItem()
      */
-    public String getIdItem()
+    public Item getItem()
     {
-        return "";
+        return item;
     }
     /**
      * Method getDate()
      */
     public String getDate()
     {
-        return "";
+        return date;
     }
     /**
      * Method getTotalPrice()
      */
     public int getTotalPrice()
     {
-        return 0;
+        return totalPrice;
     }
     /**
      * Method setId()
      */
     public void setId(int id)
     {
+        this.id = id;
     }
     /**
-     * Method setIdItem()
+     * Method setItem()
      */
-    public void setIdItem(int idItem)
+    public void setItem(int idItem)
     {
+        this.item = item;
     }
     /**
      * Method setDate()
      */
-    public void setDate(String Date)
+    public void setDate(String date)
     {
+        this.date = date;
     }
     /**
      * Method setTotalPrice()
      */
     public void setTotalPrice(int totalPrice)
     {
+        this.totalPrice = totalPrice;
+    }
+    /**
+     *  Method printData()
+     */
+    public void printData()
+    {
+        System.out.println(this.totalPrice);
     }
 }
