@@ -5,26 +5,29 @@
  * @author Jonathan
  * @version 28022019
  */
-public class Invoice
+public abstract class Invoice
 {
     // variables
     private int id;
     private Item item;
     private String date;
     private int totalPrice;
-    
+    private int totalItem;
+    private InvoiceStatus status;
+
     /*
      * Dibawah ini merupakan method yang bisa diapnggil
      */
-    
+
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, String date, int totalPrice)
+    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
     {
         this.id = id;
         this.item = item;
         this.date = date;
+        this.totalItem = totalItem;
         this.totalPrice = totalPrice;
     }
     /**
@@ -60,6 +63,22 @@ public class Invoice
         return totalPrice;
     }
     /**
+     * Method getTotalItem()
+     * @return totlaItem
+     */
+    public int getTotalItem()
+    {
+        return totalItem;
+    }
+    /**
+     * Method getInvoiceStatus()
+     * @return InvoiceStatus
+     */
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return status;
+    }
+    /**
      * Method setId()
      * @param id
      */
@@ -92,11 +111,24 @@ public class Invoice
         this.totalPrice = totalPrice;
     }
     /**
+     * Method setTotalItem()
+     * @param totalItem
+     */
+    public void setTotalItem(int totalItem)
+    {
+        this.totalItem = totalItem;
+    }
+    /**
+     * Method setInvoiceStatus()
+     * @param InvoiceStatus
+     */
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status = status;
+    }
+    /**
      *  Method printData()
      *  mencetak total price
      */
-    public void printData()
-    {
-        System.out.println(this.totalPrice);
-    }
+    public abstract void printData();
 }

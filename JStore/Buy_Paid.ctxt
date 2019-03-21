@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Buy_Paid
+comment1.params=id\ item\ date\ totalItem\ totalPrice
+comment1.target=Buy_Paid(int,\ Item,\ java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=InvoiceStatus\ getInvoiceStatus()
+comment3.params=status
+comment3.target=void\ setInvoiceStatus(InvoiceStatus)
+comment4.params=
+comment4.target=void\ printData()
+numComments=5

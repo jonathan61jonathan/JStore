@@ -9,8 +9,8 @@ public class DatabaseItem
 {
     // variables
     private String[] listItem;
-    private Item item;
-    
+    private Item itemDB;
+
     /*
      * Dibawah ini merupakan method yang bisa diapnggil
      */
@@ -18,14 +18,14 @@ public class DatabaseItem
     /**
      * Method addItem()
      */
-    public boolean addItem()
+    public boolean addItem(Item item)
     {
         return false;
     }
     /**
      * Method removeItem()
      */
-    public boolean removeItem()
+    public boolean removeItem(Item item)
     {
         return false;
     }
@@ -35,7 +35,7 @@ public class DatabaseItem
      */
     public Item getItem()
     {
-        return item;
+        return itemDB;
     }
     /**
      * Method getItemDatabase()
