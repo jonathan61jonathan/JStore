@@ -77,8 +77,8 @@ public class Location
      *  Method printData()
      *  mencetak nama provinsi
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println(this.province);
+        return city+","+province+":"+description;
     }
 }

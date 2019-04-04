@@ -8,7 +8,7 @@
 public class DatabaseSupplier
 {
     // variables
-    private String[] listSupplier;
+    private Supplier[] listSupplier;
     private Supplier supplier;
     
     /*
@@ -40,7 +40,7 @@ public class DatabaseSupplier
      * Method getListSupplier()
      * @return listSupplier
      */
-    public String[] getListSupplier()
+    public Supplier[] getListSupplier()
     {
         return listSupplier;
     }

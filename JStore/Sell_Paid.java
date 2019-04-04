@@ -1,31 +1,54 @@
+import java.util.Calendar;
 class Sell_Paid extends Invoice {
     private InvoiceType INVOICE_TYPE= InvoiceType.Sell;
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+    
+    Calendar dueDate;
+    Customer customer;
+    
 
-    public Sell_Paid(int id, Item item, String date, int totalItem, int totalPrice){
-      super(id, item, date, totalItem, totalPrice);
+    public Sell_Paid(int id, Item item, int totalItem, Customer customer){
+      super(id, item, totalItem);
+      this.customer = customer;
     }
 
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
     }
-
+    
+    public InvoiceType getInvoiceType()
+    {
+        return this.INVOICE_TYPE;
+    }
+    
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    
     public void setInvoiceStatus(InvoiceStatus status)
     {
         this.INVOICE_STATUS = status;
     }
-
-
-    public void printData()
+    
+    public void setCustomer(Customer customer)
     {
-      System.out.println("============INVOICE===========");
-      System.out.println("ID:"+super.getId());
-      System.out.println("Date:"+super.getDate());
-      System.out.println("Item:"+this.getItem().getName());
-      System.out.println("Total Item:"+ super.getTotalItem());
-      System.out.println("Total Price:"+ super.getTotalPrice());
-      System.out.println("Status:"+ INVOICE_STATUS);
-      super.getItem().printData();
+        this.customer = customer;
+    }
+
+    public String toString(){
+        return  "ID = "+getId()+
+                "\nItem = "+getItem()+
+                "\nAmount = "+getTotalItem()+
+                "\nBuyDate = "+getDate()+
+                "\nPrice = "+getItem().getPrice()+
+                "\nPrice Total = "+getTotalPrice()+
+                "\nSupplier ID = "+getItem().getSupplier()+
+                "\nSupplier Name = "+getItem().getSupplier().getName()+
+                "\nCustomer ID = "+getCustomer().getId()+
+                "\nSupplier Name = "+getCustomer().getName()+
+                "\nStatus = PAID"+
+                "\n Sell success";
     }
 }

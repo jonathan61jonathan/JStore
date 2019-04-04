@@ -4,20 +4,18 @@ class Sell_Installment extends Invoice {
 
     private int installmentPrice;
     private int installmentPeriod;
+    private Customer customer;
 
-    public Sell_Installment(int id, Item item, String date, int totalItem, int totalPrice, int installmentPeriod){
-      super(id, item, date, totalItem, totalPrice);
+    public Sell_Installment(int id, Item item, int totalItem, int installmentPeriod, Customer customer){
+      super(id, item, totalItem);
       this.installmentPeriod = installmentPeriod;
+      //setInstallmentPrice(totalPrice);
+      setTotalPrice();
     }
 
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
-    }
-
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        this.INVOICE_STATUS = status;
     }
     
     public InvoiceType getInvoiceType()
@@ -25,25 +23,43 @@ class Sell_Installment extends Invoice {
         return this.INVOICE_TYPE;
     }
 
-    public void setInstallmentPrice()
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+    
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.INVOICE_STATUS = status;
+    }
+    
+    public void setInstallmentPrice(int totalPrice)
     {
         this.installmentPrice = super.getTotalPrice() / this.installmentPeriod * 102 /100;
     }
 
-    public void setTotalPrice(int TotalPrice)
+    public void setTotalPrice()
     {
         super.setTotalPrice(this.installmentPrice * this.installmentPeriod);
     }
 
-    public void printData()
+    public void setCustomer(Customer customer)
     {
-      System.out.println("============INVOICE===========");
-      System.out.println("ID:"+super.getId());
-      System.out.println("Date:"+super.getDate());
-      System.out.println("Item:"+this.getItem().getName());
-      System.out.println("Total Item:"+ super.getTotalItem());
-      System.out.println("Total Price:"+ super.getTotalPrice());
-      System.out.println("Status:"+ INVOICE_STATUS);
-      super.getItem().printData();
+        this.customer = customer;
+    }
+    
+    public String toString(){
+            return  "ID = "+getId()+
+                "\nItem = "+getItem()+
+                "\nAmount = "+getTotalItem()+
+                "\nBuyDate = "+getDate()+
+                "\nPrice = "+getItem().getPrice()+
+                "\nPrice Total = "+getTotalPrice()+
+                "\nSupplier ID = "+getItem().getSupplier()+
+                "\nSupplier Name = "+getItem().getSupplier().getName()+
+                "\nCustomer ID = "+getCustomer().getId()+
+                "\nSupplier Name = "+getCustomer().getName()+
+                "\nStatus = INSTALLMENT"+
+                "\n Sell success";
     }
 }

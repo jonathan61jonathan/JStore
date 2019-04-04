@@ -1,3 +1,5 @@
+import java.util.Calendar;
+
 /**
  * Implementasi UML Modul 2 class Invoice
  * kelas bertujuan untuk menyimpan dan mencetak invoice
@@ -10,7 +12,7 @@ public abstract class Invoice
     // variables
     private int id;
     private Item item;
-    private String date;
+    private Calendar date;
     private int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
@@ -22,13 +24,13 @@ public abstract class Invoice
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, String date, int totalItem, int totalPrice)
+    public Invoice(int id, Item item, int totalItem)
     {
         this.id = id;
         this.item = item;
-        this.date = date;
         this.totalItem = totalItem;
-        this.totalPrice = totalPrice;
+        this.date = Calendar.getInstance();
+        setTotalPrice(totalItem * item.getPrice());
     }
     /**
      * Method getId
@@ -50,7 +52,7 @@ public abstract class Invoice
      * Method getDate()
      * @return date
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -74,10 +76,8 @@ public abstract class Invoice
      * Method getInvoiceStatus()
      * @return InvoiceStatus
      */
-    public InvoiceStatus getInvoiceStatus()
-    {
-        return status;
-    }
+    public abstract InvoiceStatus getInvoiceStatus();
+    public abstract InvoiceType getInvoiceType();
     /**
      * Method setId()
      * @param id
@@ -98,7 +98,7 @@ public abstract class Invoice
      * Method setDate()
      * @param date
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date = date;
     }
@@ -126,9 +126,7 @@ public abstract class Invoice
     {
         this.status = status;
     }
-    /**
-     *  Method printData()
-     *  mencetak total price
-     */
-    public abstract void printData();
+    public String toString(){
+        return "";
+    }
 }

@@ -11,6 +11,6 @@ comment3.params=
 comment3.target=Supplier\ getSupplier()
 comment3.text=\r\n\ \ Method\ getSupplier()\r\n\ \ @return\ supplier\r\n
 comment4.params=
-comment4.target=java.lang.String[]\ getListSupplier()
+comment4.target=Supplier[]\ getListSupplier()
 comment4.text=\r\n\ Method\ getListSupplier()\r\n\ @return\ listSupplier\r\n
 numComments=5

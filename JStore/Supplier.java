@@ -112,8 +112,7 @@ public class Supplier
      *  Method printData()
      *  mencetak nama dari supplier
      */
-    public void printData()
-    {
-        System.out.println(this.name);
+    public String toString(){
+        return id+","+name+","+email+","+phoneNumber+","+location;
     }
 }

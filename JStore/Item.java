@@ -141,14 +141,7 @@ public class Item
      *  Method printData()
      *  mecetak nama dari item
      */
-    public void printData()
-    {
-      System.out.println("=========ITEM========");
-      System.out.println("ID:"+id);
-      System.out.println("Name:"+name);
-      System.out.println("Stock:"+stock);
-      System.out.println("Category:"+category);
-      System.out.println("Status:"+status);
-      System.out.println("Supplier: Jonathan");
+    public String toString(){
+      return id+","+name+","+stock+","+price+","+supplier+","+category+","+status;
     }
 }

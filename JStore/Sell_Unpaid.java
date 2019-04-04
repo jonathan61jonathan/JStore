@@ -1,34 +1,50 @@
+import java.util.Calendar;
 class Sell_Unpaid extends Invoice {
     private InvoiceType INVOICE_TYPE= InvoiceType.Sell;
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
 
-    private String dueDate;
+    Calendar dueDate;
+    Customer customer;
 
-    public Sell_Unpaid(int id, Item item, String date, int totalItem, int totalPrice, String dueDate){
-      super(id, item, date, totalItem, totalPrice);
-      this.dueDate = dueDate;
+    public Sell_Unpaid(int id, Item item, int totalItem, Customer customer){
+      super(id, item, totalItem);
+      this.dueDate = Calendar.getInstance();
+      this.dueDate.add(Calendar.DATE, 1);
+      this.customer = customer;
     }
-
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
     }
-
-    public void setInvoiceStatus(InvoiceStatus status)
+    public InvoiceType getInvoiceType()
     {
-        this.INVOICE_STATUS = status;
+        return this.INVOICE_TYPE;
     }
-
-
-    public void printData()
-    {
-      System.out.println("ID:"+super.getId());
-      System.out.println("Date:"+super.getDate());
-      System.out.println("Item:"+this.getItem().getName());
-      System.out.println("Total Item:"+ super.getTotalItem());
-      System.out.println("Total Price:"+ super.getTotalPrice());
-      System.out.println("Status:"+ INVOICE_STATUS);
-      System.out.println("Due Date:"+ this.dueDate);
-      super.getItem().printData();
+    public Customer getCustomer(){
+        return customer;
+    }
+    public Calendar getDueDate(){
+        return dueDate;
+    }
+    public void setCustomer(Customer customer){
+        this.customer = customer;
+    }
+    public void setDueDate(Calendar dueDate){
+        this.dueDate = dueDate;
+    }
+    public String toString(){
+        return  "ID = "+getId()+
+                "\nItem = "+getItem()+
+                "\nAmount = "+getTotalItem()+
+                "\nBuyDate = "+getDate()+
+                "\nPrice = "+getItem().getPrice()+
+                "\nPrice Total = "+getTotalPrice()+
+                "\nSupplier ID = "+getItem().getSupplier()+
+                "\nSupplier Name = "+getItem().getSupplier().getName()+
+                "\nCustomer ID = "+getCustomer().getId()+
+                "\nSupplier Name = "+getCustomer().getName()+
+                "\nStatus = UNPAID"+
+                "\nDue date = "+ getDueDate()+
+                "\n Buy success";
     }
 }
