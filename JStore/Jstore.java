@@ -43,12 +43,10 @@ public class Jstore
 
 
         //Customer
-        Customer customer = new Customer("Vincent Sanjaya", "vincent.sanjaya@ui.ac.id", "vincent.sanjaya", "gabolehtau", 1998, 12, 06);
+        Customer customer = new Customer("Jonathan", "jonathana@ui.ac.id", "jonathan.jo", "gabolehtau", 1998, 11, 06);
         DatabaseCustomer.addCustomer(customer);
-        Customer customer2 = new Customer("Vincent Sanjaya", "vincent.sanjaya@ui.ac.id", "vincent.sanjaya", "gabolehtau", 1998, 12, 06);
+        Customer customer2 = new Customer("Vincent", "vincent@ui.ac.id", "vincent.sanjaya", "gabolehtau", 1998, 12, 06);
         DatabaseCustomer.addCustomer(customer2);
-        Customer customer3 = new Customer("Vincent Sans", "vincent.sanjaya@gmail.com", "vincent.sanjaya", "gabolehtau", 1998, 12, 06);
-        DatabaseCustomer.addCustomer(customer3);
         ArrayList<Customer> tempCust = DatabaseCustomer.getCustomerDatabase();
 
         System.out.println(customer2);
@@ -65,15 +63,6 @@ public class Jstore
         Transaction.sellItemUnpaid(listItem, customer);
         Transaction.sellItemInstallment(listItem, customer, 15);
 
-        // System.out.println(supplier.toString());
-        // System.out.println(barang.toString());
-        // System.out.println(customer.toString());
-        // DatabaseItem.addItem(barang);
-
-        //Transaction.orderNewItem(DatabaseItem.getItem());
-        //Transaction.sellItemPaid(DatabaseItem.getItem(), customer);
-        //Transaction.sellItemUnpaid(DatabaseItem.getItem(), customer);
-        //Transaction.sellItemInstallment(DatabaseItem.getItem(), customer, 10);
     }
 
 }
