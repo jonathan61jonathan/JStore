@@ -1,9 +1,12 @@
-class Buy_Paid extends Invoice {
-    private InvoiceType INVOICE_TYPE= InvoiceType.Buy;
-    private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+import java.util.ArrayList;
 
-    public Buy_Paid(int id, Item item, int totalItem){
-      super(id, item, totalItem);
+class Buy_Paid extends Invoice {
+    private static InvoiceType INVOICE_TYPE= InvoiceType.Buy;
+    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+
+    public Buy_Paid(ArrayList<Integer> item){
+      super(item);
+      setIsActive(false);
     }
     public InvoiceStatus getInvoiceStatus()
     {
@@ -11,17 +14,26 @@ class Buy_Paid extends Invoice {
     }
     public InvoiceType getInvoiceType()
     {
-        return this.INVOICE_TYPE;
+        return INVOICE_TYPE;
     }
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        INVOICE_STATUS = invoiceStatus;
+    }
+
     public String toString(){
-        return  "ID = "+getId()+
-                "\nItem = "+getItem()+
-                "\nAmount = "+getTotalItem()+
-                "\nBuyDate = "+getDate()+
-                "\nPrice = "+getItem().getPrice()+
+        String re = "ID = "+getId()+"\nItem = ";
+
+        for (int items:
+             super.getItem()) {
+            re += DatabaseItem.getItemFromId(items).toString()+"\n";
+        }
+
+        re +=  "\nBuyDate = "+getDate()+
                 "\nPrice Total = "+getTotalPrice()+
-                "\nSupplier ID = "+getItem().getSupplier()+
                 "\nStatus = PAID"+
                 "\n Buy success";
+
+        return re;
     }
 }

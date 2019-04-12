@@ -1,15 +1,21 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 class Sell_Paid extends Invoice {
-    private InvoiceType INVOICE_TYPE= InvoiceType.Sell;
-    private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+    private static InvoiceType INVOICE_TYPE= InvoiceType.Sell;
+    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        INVOICE_STATUS = invoiceStatus;
+    }
     
     Calendar dueDate;
     Customer customer;
     
 
-    public Sell_Paid(int id, Item item, int totalItem, Customer customer){
-      super(id, item, totalItem);
-      this.customer = customer;
+    public Sell_Paid(ArrayList<Integer> item, Customer customer){
+      super(item);
+      setCustomer(customer);
+      setIsActive(false);
     }
 
     public InvoiceStatus getInvoiceStatus()
@@ -19,18 +25,14 @@ class Sell_Paid extends Invoice {
     
     public InvoiceType getInvoiceType()
     {
-        return this.INVOICE_TYPE;
+        return INVOICE_TYPE;
     }
     
     public Customer getCustomer()
     {
         return customer;
     }
-    
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        this.INVOICE_STATUS = status;
-    }
+
     
     public void setCustomer(Customer customer)
     {
@@ -38,17 +40,19 @@ class Sell_Paid extends Invoice {
     }
 
     public String toString(){
-        return  "ID = "+getId()+
-                "\nItem = "+getItem()+
-                "\nAmount = "+getTotalItem()+
-                "\nBuyDate = "+getDate()+
-                "\nPrice = "+getItem().getPrice()+
-                "\nPrice Total = "+getTotalPrice()+
-                "\nSupplier ID = "+getItem().getSupplier()+
-                "\nSupplier Name = "+getItem().getSupplier().getName()+
+        String re = "ID = "+getId()+"\nItem = ";
+
+        for (int items:
+                super.getItem()) {
+            re += DatabaseItem.getItemFromId(items).toString()+"\n";
+        }
+
+         re+=   "\nBuyDate = "+getDate()+
                 "\nCustomer ID = "+getCustomer().getId()+
                 "\nSupplier Name = "+getCustomer().getName()+
                 "\nStatus = PAID"+
-                "\n Sell success";
+                "\nSell success";
+
+        return re;
     }
 }

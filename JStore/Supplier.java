@@ -21,9 +21,8 @@ public class Supplier
     /**
      * Constructor for objects of class Item
      */
-    public Supplier(int id, String email, String phoneNumber, Location location)
+    public Supplier(String email, String phoneNumber, Location location)
     {
-        this.id = id;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.location = location;

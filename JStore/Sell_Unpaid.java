@@ -1,16 +1,22 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 class Sell_Unpaid extends Invoice {
-    private InvoiceType INVOICE_TYPE= InvoiceType.Sell;
-    private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
+    private static InvoiceType INVOICE_TYPE= InvoiceType.Sell;
+    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        INVOICE_STATUS = invoiceStatus;
+    }
 
     Calendar dueDate;
     Customer customer;
 
-    public Sell_Unpaid(int id, Item item, int totalItem, Customer customer){
-      super(id, item, totalItem);
+    public Sell_Unpaid(ArrayList<Integer> item, Customer customer){
+      super(item);
       this.dueDate = Calendar.getInstance();
       this.dueDate.add(Calendar.DATE, 1);
-      this.customer = customer;
+      setCustomer(customer);
+      setIsActive(true);
     }
     public InvoiceStatus getInvoiceStatus()
     {
@@ -33,18 +39,21 @@ class Sell_Unpaid extends Invoice {
         this.dueDate = dueDate;
     }
     public String toString(){
-        return  "ID = "+getId()+
-                "\nItem = "+getItem()+
-                "\nAmount = "+getTotalItem()+
-                "\nBuyDate = "+getDate()+
-                "\nPrice = "+getItem().getPrice()+
+        String re = "ID = "+getId()+"\nItem = ";
+
+        for (int items:
+                super.getItem()) {
+            re += DatabaseItem.getItemFromId(items).toString()+"\n";
+        }
+
+        re += "\nBuyDate = "+getDate()+
                 "\nPrice Total = "+getTotalPrice()+
-                "\nSupplier ID = "+getItem().getSupplier()+
-                "\nSupplier Name = "+getItem().getSupplier().getName()+
                 "\nCustomer ID = "+getCustomer().getId()+
                 "\nSupplier Name = "+getCustomer().getName()+
                 "\nStatus = UNPAID"+
                 "\nDue date = "+ getDueDate()+
                 "\n Buy success";
+                
+        return re;
     }
 }

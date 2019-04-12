@@ -1,3 +1,4 @@
+import java.util.*;
 
 /**
  * Write a description of class DatabaseInvoice here.
@@ -8,31 +9,61 @@
 public class DatabaseInvoice
 {
     // instance variables - replace the example below with your own
-    private Invoice[] listInvoice;
+    private static ArrayList<Invoice> INVOICE_DATABASE;
+    private static int LAST_INVOICE_ID = 0;
 
-    /**
-     * Constructor for objects of class DatabaseInvoice
-     */
-    public DatabaseInvoice()
+
+    public static ArrayList<Invoice> getInvoiceDatabase()
     {
+        return INVOICE_DATABASE;
     }
-    
-    public boolean addInvoice(Invoice invoice)
+
+    public static int getLastInvoiceID()
     {
-        // put your code here
-        return true;
+        return LAST_INVOICE_ID;
     }
-    public boolean removeInvoice(Invoice invoice)
+
+    public static boolean addInvoice(Invoice invoice)
     {
-        // put your code here
-        return true;
+        if(INVOICE_DATABASE.add(invoice))
+        {
+            LAST_INVOICE_ID++;
+            return true;
+        }
+        return false;
     }
-    public Invoice getInvoice()
+
+    public static Invoice getInvoice(int id)
     {
-        return listInvoice[0];
+        for (Invoice invoice:
+             INVOICE_DATABASE) {
+            if(invoice.getId() == id) {
+                return invoice;
+            }
+        }
+        return null;
     }
-    public Invoice[] getListInvoice()
+
+    public static Invoice getActiveOrder(Customer customer)
     {
-        return listInvoice;
+        for(Invoice invoice:
+            INVOICE_DATABASE) {
+            if((invoice.getCustomer() == customer) && (invoice.getInvoiceStatus() == InvoiceStatus.Unpaid)) {
+                return invoice;
+            }
+        }
+        return null;
+    }
+
+    public static boolean removeInvoice(int id)
+    {
+        for (Invoice invoice:
+                INVOICE_DATABASE) {
+            if(invoice.getId() == id) {
+                INVOICE_DATABASE.remove(invoice);
+                return true;
+            }
+        }
+        return false;
     }
 }

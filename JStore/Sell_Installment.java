@@ -1,16 +1,24 @@
+import java.util.ArrayList;
+
 class Sell_Installment extends Invoice {
-    private InvoiceType INVOICE_TYPE= InvoiceType.Sell;
-    private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Installment;
+    private static InvoiceType INVOICE_TYPE= InvoiceType.Sell;
+    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Installment;
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        INVOICE_STATUS = invoiceStatus;
+    }
 
     private int installmentPrice;
     private int installmentPeriod;
     private Customer customer;
 
-    public Sell_Installment(int id, Item item, int totalItem, int installmentPeriod, Customer customer){
-      super(id, item, totalItem);
+    public Sell_Installment(ArrayList<Integer> item, Customer customer, int installmentPeriod){
+      super(item);
       this.installmentPeriod = installmentPeriod;
       //setInstallmentPrice(totalPrice);
       setTotalPrice();
+      setIsActive(true);
+      setCustomer(customer);
     }
 
     public InvoiceStatus getInvoiceStatus()
@@ -20,17 +28,12 @@ class Sell_Installment extends Invoice {
     
     public InvoiceType getInvoiceType()
     {
-        return this.INVOICE_TYPE;
+        return INVOICE_TYPE;
     }
 
     public Customer getCustomer()
     {
         return customer;
-    }
-    
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        this.INVOICE_STATUS = status;
     }
     
     public void setInstallmentPrice(int totalPrice)
@@ -49,17 +52,20 @@ class Sell_Installment extends Invoice {
     }
     
     public String toString(){
-            return  "ID = "+getId()+
-                "\nItem = "+getItem()+
-                "\nAmount = "+getTotalItem()+
-                "\nBuyDate = "+getDate()+
-                "\nPrice = "+getItem().getPrice()+
+        String re = "ID = "+getId()+"\nItem = ";
+
+        for (int items:
+                super.getItem()) {
+            re += DatabaseItem.getItemFromId(items).toString()+"\n";
+        }
+
+        re += "\nBuyDate = "+getDate()+
                 "\nPrice Total = "+getTotalPrice()+
-                "\nSupplier ID = "+getItem().getSupplier()+
-                "\nSupplier Name = "+getItem().getSupplier().getName()+
                 "\nCustomer ID = "+getCustomer().getId()+
                 "\nSupplier Name = "+getCustomer().getName()+
                 "\nStatus = INSTALLMENT"+
                 "\n Sell success";
+
+        return re;
     }
 }

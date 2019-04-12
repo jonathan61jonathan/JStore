@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Implementasi UML Modul 2 class DatabaseSupplier
  * kelas berujuan untuk mengumpulkan supplier
@@ -8,40 +10,49 @@
 public class DatabaseSupplier
 {
     // variables
-    private Supplier[] listSupplier;
-    private Supplier supplier;
-    
-    /*
-     * Dibawah ini merupakan method yang bisa diapnggil
-     */
-    
-    /**
-     * Method addItem()
-     */
-    public boolean addSupplier()
+    private ArrayList<Supplier> SUPPLIER_DATABASE;
+    private int LAST_SUPPLIER_ID = 0;
+
+    public ArrayList<Supplier> getSupplierDatabase()
     {
+        return SUPPLIER_DATABASE;
+    }
+
+    public int getLastSupplierID()
+    {
+        return LAST_SUPPLIER_ID;
+    }
+
+    public boolean addSupplier(Supplier supplier)
+    {
+        if(SUPPLIER_DATABASE.add(supplier))
+        {
+            LAST_SUPPLIER_ID++;
+            return true;
+        }
+        else return false;
+    }
+
+    public Supplier getSupplier(int id)
+    {
+        for (Supplier supplier:
+                SUPPLIER_DATABASE) {
+            if(supplier.getId() == id) {
+                return supplier;
+            }
+        }
+        return null;
+    }
+
+    public boolean removeSupplier(int id)
+    {
+        for (Supplier supplier:
+                SUPPLIER_DATABASE) {
+            if(supplier.getId() == id) {
+                SUPPLIER_DATABASE.remove(supplier);
+                return true;
+            }
+        }
         return false;
-    }
-    /**
-     * Method removeItem()
-     */
-    public void removeSupplier()
-    {
-    }
-    /**
-     *  Method getSupplier()
-     *  @return supplier
-     */
-    public Supplier getSupplier()
-    {
-        return supplier;
-    }
-    /**
-     * Method getListSupplier()
-     * @return listSupplier
-     */
-    public Supplier[] getListSupplier()
-    {
-        return listSupplier;
     }
 }

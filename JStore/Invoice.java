@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -11,11 +12,11 @@ public abstract class Invoice
 {
     // variables
     private int id;
-    private Item item;
+    private ArrayList<Integer> item;
     private Calendar date;
     private int totalPrice;
-    private int totalItem;
-    private InvoiceStatus status;
+    private boolean isActive;
+    private Customer customer;
 
     /*
      * Dibawah ini merupakan method yang bisa diapnggil
@@ -24,109 +25,75 @@ public abstract class Invoice
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, Item item, int totalItem)
+    public Invoice(ArrayList<Integer> item)
     {
-        this.id = id;
-        this.item = item;
-        this.totalItem = totalItem;
-        this.date = Calendar.getInstance();
-        setTotalPrice(totalItem * item.getPrice());
+        setId(DatabaseInvoice.getLastInvoiceID()+1);
+        setItem(item);
+        setDate(Calendar.getInstance());
+        int price = 0;
+        for (int itemNumber:
+                this.item) {
+            price += DatabaseItem.getItemFromId(itemNumber).getPrice();
+        }
+        setTotalPrice(price);
     }
-    /**
-     * Method getId
-     * @return id
-     */
+
     public int getId()
     {
         return id;
     }
-    /**
-     * Method getItem()
-     * @return item
-     */
-    public Item getItem()
+    public ArrayList<Integer> getItem()
     {
         return item;
     }
-    /**
-     * Method getDate()
-     * @return date
-     */
     public Calendar getDate()
     {
         return date;
     }
-    /**
-     * Method getTotalPrice()
-     * @return totalPrice
-     */
+
     public int getTotalPrice()
     {
         return totalPrice;
     }
-    /**
-     * Method getTotalItem()
-     * @return totlaItem
-     */
-    public int getTotalItem()
-    {
-        return totalItem;
-    }
-    /**
-     * Method getInvoiceStatus()
-     * @return InvoiceStatus
-     */
+
     public abstract InvoiceStatus getInvoiceStatus();
     public abstract InvoiceType getInvoiceType();
-    /**
-     * Method setId()
-     * @param id
-     */
+    public boolean getIsActive()
+    {
+        return isActive;
+    }
+    public Customer getCustomer()
+    {
+        return customer;
+    }
+
     public void setId(int id)
     {
         this.id = id;
     }
-    /**
-     * Method setItem()
-     * @param item
-     */
-    public void setItem(int idItem)
+
+    public void setItem(ArrayList<Integer> item)
     {
         this.item = item;
     }
-    /**
-     * Method setDate()
-     * @param date
-     */
+
     public void setDate(Calendar date)
     {
         this.date = date;
     }
-    /**
-     * Method setTotalPrice()
-     * @param totalPrice
-     */
+
     public void setTotalPrice(int totalPrice)
     {
         this.totalPrice = totalPrice;
     }
-    /**
-     * Method setTotalItem()
-     * @param totalItem
-     */
-    public void setTotalItem(int totalItem)
+
+
+    public abstract void setInvoiceStatus(InvoiceStatus status);
+
+    public void setIsActive(boolean isActive)
     {
-        this.totalItem = totalItem;
+        this.isActive = isActive;
     }
-    /**
-     * Method setInvoiceStatus()
-     * @param InvoiceStatus
-     */
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        this.status = status;
-    }
-    public String toString(){
-        return "";
-    }
+
+    public abstract String toString();
 }

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Jstore
+comment0.text=\r\n\ Implementasi\ UML\ Modul\ 2\ class\ Jstore\r\n\ kelas\ bertujuan\ untuk\ memanggil\ seluruh\ kelas\ lainya\r\n\r\n\ @author\ Jonathan\r\n\ @version\ 28022019\r\n
+comment1.params=
+comment1.target=Jstore()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Jstore\r\n
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment2.text=\r\n\ Main\ Method\r\n
+numComments=3

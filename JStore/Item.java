@@ -22,16 +22,14 @@ public class Item
     /**
      * Constructor for objects of class Item
      */
-    public Item(int id, String name, int stock, ItemStatus status, int price, ItemCategory category, Supplier supplier)
+    public Item( String name, int stock, ItemStatus status, int price, ItemCategory category, Supplier supplier)
     {
-        this.id = id;
         this.name = name;
         this.stock = stock;
         this.status = status;
         this.price = price;
         this.category = category;
         this.supplier = supplier;
-        this.category = category;
     }
     /**
      * Method getId
