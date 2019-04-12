@@ -21,11 +21,12 @@ public class Supplier
     /**
      * Constructor for objects of class Item
      */
-    public Supplier(String email, String phoneNumber, Location location)
+    public Supplier(String name, String email, String phoneNumber, Location location)
     {
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.location = location;
+        setName(name);
+        setEmail(email);
+        setPhoneNumber(phoneNumber);
+        setLocation(location);
     }
     /**
      * Method getId

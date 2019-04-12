@@ -9,7 +9,7 @@ import java.util.*;
 public class DatabaseInvoice
 {
     // instance variables - replace the example below with your own
-    private static ArrayList<Invoice> INVOICE_DATABASE;
+    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
     private static int LAST_INVOICE_ID = 0;
 
 

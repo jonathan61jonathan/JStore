@@ -12,3 +12,4 @@ public enum InvoiceStatus {
 
     //An enum class automatically gets a toString() method in the class when compiled.
 }
+ 

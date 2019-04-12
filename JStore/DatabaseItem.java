@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DatabaseItem
 {
     // variables
-    private static ArrayList<Item> ITEM_DATABASE;
+    private static ArrayList<Item> ITEM_DATABASE = new ArrayList<Item>();
     private static int LAST_ITEM_ID = 0;
 
     public static ArrayList<Item> getItemDatabase()
@@ -25,12 +25,17 @@ public class DatabaseItem
 
     public static boolean addItem(Item item)
     {
-        if(ITEM_DATABASE.add(item))
-        {
+        for (Item temp : ITEM_DATABASE ) {
+            if(((temp.getName() == item.getName()) && (temp.getStatus() == item.getStatus()) &&
+                    (temp.getSupplier() == item.getSupplier()))){
+                return false;
+            }
+        }
+        if(ITEM_DATABASE.add(item)) {
             LAST_ITEM_ID++;
             return true;
         }
-        else return false;
+        return false;
     }
 
     public static Item getItemFromId(int id)

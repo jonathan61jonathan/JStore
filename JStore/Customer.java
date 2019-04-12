@@ -22,20 +22,22 @@ public class Customer
      */
     public Customer(String name, String email,  String username, String password, Calendar birthDate)
     {   
-        this.name = name;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.birthDate = birthDate;
+        setName(name);
+        setEmail(email);
+        setUsername(username);
+        setPassword(password);
+        setBirthDate(birthDate);
+        setId(DatabaseCustomer.getLastCustomerID()+1);
     }
-    public Customer(String name, String email,  String username, String password, int id, int year, int month, int dayOfMonth)
+    public Customer(String name, String email, String username, String password, int year, int month, int dayOfMonth)
     {
-        this.name = name;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.id = id; 
-        this.birthDate = new GregorianCalendar(year, month-1, dayOfMonth);
+        setName(name);
+        setEmail(email);
+        setUsername(username);
+        setPassword(password);
+        setBirthDate(birthDate);
+        setBirthDate(year, month, dayOfMonth);
+        setId(DatabaseCustomer.getLastCustomerID()+1);
     }
     public String getName(){
         return this.name;
@@ -59,6 +61,7 @@ public class Customer
         return this.birthDate;
     }
     public void setName(String name){
+        this.name = name;
     }
     public void setEmail(String email){
         String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -67,6 +70,7 @@ public class Customer
         this.email = (matcher.matches())?email: null;
     }
     public void setUsername(String username){
+        this.username = username;
     }
     public void setPassword(String password){
         String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$";
@@ -75,10 +79,13 @@ public class Customer
         this.password = (passwordMatcher.matches())?password: null;
     }
     public void setId(int id){
+        this.id = id;
     }
     public void setBirthDate(Calendar birthDate){
+        this.birthDate = birthDate;
     }
     public void setBirthDate(int year, int month, int dayOfMonth){
+        this.birthDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     public String toString(){
         return name+","+email+","+username+","+password+","+id+","+birthDate;

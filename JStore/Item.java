@@ -24,12 +24,12 @@ public class Item
      */
     public Item( String name, int stock, ItemStatus status, int price, ItemCategory category, Supplier supplier)
     {
-        this.name = name;
-        this.stock = stock;
-        this.status = status;
-        this.price = price;
-        this.category = category;
-        this.supplier = supplier;
+        setName(name);
+        setStock(stock);
+        setStatus(status);
+        setPrice(price);
+        setCategory(category);
+        setSupplier(supplier);
     }
     /**
      * Method getId
@@ -103,6 +103,7 @@ public class Item
     {
         this.name = name;
     }
+    public void setStock(int stock) {this.stock = stock; }
     /**
      * Method setPrice()
      * @param price
@@ -140,6 +141,6 @@ public class Item
      *  mecetak nama dari item
      */
     public String toString(){
-      return id+","+name+","+stock+","+price+","+supplier+","+category+","+status;
+      return "Id: "+id+"\nName: "+name+"\nStock: "+stock+"\nCategory: "+category+"\nStatus: "+status+"\nSupplier: "+supplier.getName();
     }
 }

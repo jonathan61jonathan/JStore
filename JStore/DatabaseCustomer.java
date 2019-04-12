@@ -10,26 +10,39 @@ import java.util.ArrayList;
 public class DatabaseCustomer
 {
     // variables
-    private ArrayList<Customer> CUSTOMER_DATABASE;
-    private int LAST_CUSTOMER_ID;
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
+    private static int LAST_CUSTOMER_ID = 0;
+    
+    public DatabaseCustomer()
+    {
+        
+    }
 
-    public ArrayList<Customer> getCustomerDatabase()
+    public static ArrayList<Customer> getCustomerDatabase()
     {
         return CUSTOMER_DATABASE;
     }
 
-    public int getLastCustomerID()
+    public static int getLastCustomerID()
     {
         return LAST_CUSTOMER_ID;
     }
 
-    public boolean addCustomer(Customer customer)
+    public static boolean addCustomer(Customer customer)
     {
-        if(CUSTOMER_DATABASE.add(customer))return true;
-        else return false;
+        for (Customer temp : CUSTOMER_DATABASE ) {
+            if(((temp.getName() == customer.getName()) && (temp.getEmail() == customer.getEmail()))) {
+                return false;
+            }
+        }
+        if (CUSTOMER_DATABASE.add(customer)) {
+            LAST_CUSTOMER_ID++;
+            return true;
+        }
+        return false;
     }
 
-    public Customer getCustomer(int id)
+    public static Customer getCustomer(int id)
     {
         for (Customer customer:
                 CUSTOMER_DATABASE) {
@@ -40,10 +53,10 @@ public class DatabaseCustomer
         return null;
     }
 
-    public boolean removeCustomer(int id)
+    public static boolean removeCustomer(int id)
     {
         for (Customer customer:
-                CUSTOMER_DATABASE) {
+                CUSTOMER_DATABASE) { 
             if(customer.getId() == id) {
                 CUSTOMER_DATABASE.remove(customer);
                 return true;
