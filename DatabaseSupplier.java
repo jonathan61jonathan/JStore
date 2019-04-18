@@ -23,12 +23,11 @@ public class DatabaseSupplier
         return LAST_SUPPLIER_ID;
     }
 
-    public static boolean addSupplier(Supplier supplier)
+    public static boolean addSupplier(Supplier supplier) throws SupplierAlreadyExistsException
     {
         for (Supplier temp : SUPPLIER_DATABASE ) {
-            if(((temp.getName() == supplier.getName()) && (temp.getEmail() == supplier.getEmail()) &&
-                    (temp.getPhoneNumber() == supplier.getPhoneNumber()))){
-                return false;
+            if((temp.getEmail().equals(supplier.getEmail())) && (temp.getPhoneNumber().equals(supplier.getPhoneNumber()))){
+                throw new SupplierAlreadyExistsException(supplier);
             }
         }
         if(SUPPLIER_DATABASE.add(supplier)) {
@@ -49,7 +48,7 @@ public class DatabaseSupplier
         return null;
     }
 
-    public static boolean removeSupplier(int id)
+    public static boolean removeSupplier(int id) throws SupplierNotFoundException
     {
         for (Supplier supplier:
                 SUPPLIER_DATABASE) {
@@ -58,6 +57,6 @@ public class DatabaseSupplier
                 return true;
             }
         }
-        return false;
+        throw new SupplierNotFoundException(id);
     }
 }

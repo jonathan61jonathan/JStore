@@ -28,11 +28,11 @@ public class DatabaseCustomer
         return LAST_CUSTOMER_ID;
     }
 
-    public static boolean addCustomer(Customer customer)
+    public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException
     {
         for (Customer temp : CUSTOMER_DATABASE ) {
-            if(((temp.getName() == customer.getName()) && (temp.getEmail() == customer.getEmail()))) {
-                return false;
+            if((temp.getName().equals(customer.getName())) && (temp.getEmail().equals(customer.getEmail()))) {
+                throw new CustomerAlreadyExistsException(customer);
             }
         }
         if (CUSTOMER_DATABASE.add(customer)) {
@@ -53,7 +53,7 @@ public class DatabaseCustomer
         return null;
     }
 
-    public static boolean removeCustomer(int id)
+    public static boolean removeCustomer(int id) throws CustomerNotFoundException
     {
         for (Customer customer:
                 CUSTOMER_DATABASE) { 
@@ -62,6 +62,6 @@ public class DatabaseCustomer
                 return true;
             }
         }
-        return false;
+        throw new CustomerNotFoundException(id);
     }
 }

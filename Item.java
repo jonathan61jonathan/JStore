@@ -22,7 +22,7 @@ public class Item
     /**
      * Constructor for objects of class Item
      */
-    public Item( String name, int stock, ItemStatus status, int price, ItemCategory category, Supplier supplier)
+    public Item( String name, ItemStatus status, int price, Supplier supplier, ItemCategory category)
     {
         setName(name);
         setStock(stock);

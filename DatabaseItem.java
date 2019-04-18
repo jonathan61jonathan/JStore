@@ -23,12 +23,12 @@ public class DatabaseItem
         return LAST_ITEM_ID;
     }
 
-    public static boolean addItem(Item item)
+    public static boolean addItem(Item item) throws ItemAlreadyExistsException
     {
         for (Item temp : ITEM_DATABASE ) {
-            if(((temp.getName() == item.getName()) && (temp.getStatus() == item.getStatus()) &&
-                    (temp.getSupplier() == item.getSupplier()))){
-                return false;
+            if(((temp.getName().equals(item.getName())) && (temp.getStatus().equals(item.getStatus()))) &&
+                    ((temp.getSupplier().equals(item.getSupplier())) && (temp.getCategory().equals(item.getCategory())))){
+                throw new ItemAlreadyExistsException(item);
             }
         }
         if(ITEM_DATABASE.add(item)) {
@@ -82,15 +82,13 @@ public class DatabaseItem
         return null;
     }
 
-    public static boolean removeItem(int id)
-    {
-        for (Item item:
-                ITEM_DATABASE) {
-            if(item.getId() == id) {
+    public static boolean removeItem(int id) throws ItemNotFoundException {
+        for (Item item : ITEM_DATABASE) {
+            if (item.getId() == id) {
                 ITEM_DATABASE.remove(item);
                 return true;
             }
         }
-        return false;
+        throw new ItemNotFoundException(getItemFromId(id));
     }
 }
