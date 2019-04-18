@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=DatabaseCustomer
+comment0.text=\r\n\ Implementasi\ UML\ Modul\ 2\ class\ DatabaseCustomer\r\n\ kelas\ bertujuan\ untuk\ mengumpulkan\ supplier\r\n\r\n\ @author\ Jonathan\r\n\ @version\ 28022019\r\n
+comment1.params=
+comment1.target=DatabaseCustomer()
+comment2.params=
+comment2.target=java.util.ArrayList\ getCustomerDatabase()
+comment3.params=
+comment3.target=int\ getLastCustomerID()
+comment4.params=customer
+comment4.target=boolean\ addCustomer(Customer)
+comment5.params=id
+comment5.target=Customer\ getCustomer(int)
+comment6.params=id
+comment6.target=boolean\ removeCustomer(int)
+numComments=7

@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Transaction
+comment0.text=\r\n\ Implementasi\ UML\ Modul\ 3\ class\ Transaction\r\n\r\n\ @author\ Jonathan\r\n\ @version\ 20190320\r\n
+comment1.params=item
+comment1.target=void\ orderNewItem(java.util.ArrayList)
+comment2.params=item
+comment2.target=void\ orderSecondItem(java.util.ArrayList)
+comment3.params=item
+comment3.target=void\ orderRefurbishedItem(java.util.ArrayList)
+comment4.params=item\ customer
+comment4.target=void\ sellItemPaid(java.util.ArrayList,\ Customer)
+comment5.params=item\ customer
+comment5.target=void\ sellItemUnpaid(java.util.ArrayList,\ Customer)
+comment6.params=item\ customer\ installmentPeriod
+comment6.target=void\ sellItemInstallment(java.util.ArrayList,\ Customer,\ int)
+comment7.params=invoice
+comment7.target=boolean\ finishTransaction(Invoice)
+comment8.params=invoice
+comment8.target=boolean\ cancelTransaction(Invoice)
+numComments=9
