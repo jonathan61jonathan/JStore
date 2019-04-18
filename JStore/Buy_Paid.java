@@ -25,14 +25,16 @@ class Buy_Paid extends Invoice {
         String re = "ID = "+getId()+"\nItem = ";
 
         for (int items:
-             super.getItem()) {
+            super.getItem()) {
             re += DatabaseItem.getItemFromId(items).toString()+"\n";
         }
 
         re +=  "\nBuyDate = "+getDate()+
                 "\nPrice Total = "+getTotalPrice()+
+                "\nIsActive = "+ getIsActive()+
                 "\nStatus = PAID"+
-                "\n Buy success";
+                "\n Buy success" +
+                "\n----------------------------------\n\n";
 
         return re;
     }

@@ -50,9 +50,11 @@ class Sell_Unpaid extends Invoice {
                 "\nPrice Total = "+getTotalPrice()+
                 "\nCustomer ID = "+getCustomer().getId()+
                 "\nSupplier Name = "+getCustomer().getName()+
+                "\nIsActive = "+ getIsActive()+
                 "\nStatus = UNPAID"+
                 "\nDue date = "+ getDueDate()+
-                "\n Buy success";
+                "\n Buy success"+
+                "\n----------------------------------\n\n";
                 
         return re;
     }

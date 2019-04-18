@@ -33,7 +33,7 @@ public class Transaction {
         System.out.println("=== SELL INSTALLMENT ===");
         System.out.println(ItemInstallment);
     }
-    public boolean finishTransaction(Invoice invoice){
+    public static boolean finishTransaction(Invoice invoice){
         for(Invoice i: DatabaseInvoice.getInvoiceDatabase()){
             if (i == invoice){
                 i.setIsActive(false);
@@ -43,7 +43,7 @@ public class Transaction {
         }
         return false;
     }
-    public boolean cancelTransaction(Invoice invoice){
+    public static boolean cancelTransaction(Invoice invoice){
         for(Invoice i: DatabaseInvoice.getInvoiceDatabase()){
             if(i == invoice){
                 DatabaseInvoice.removeInvoice(i.getId());

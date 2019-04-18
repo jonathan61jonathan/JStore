@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Supplier
 comment0.text=\r\n\ Implementasi\ UML\ Modul\ 2\ class\ Supplier\r\n\ kelas\ bertujuan\ untuk\ menyimpan\ data\ supplier.\r\n\r\n\ @author\ Jonathan\r\n\ @version\ 28022019\r\n
-comment1.params=id\ email\ phoneNumber\ location
-comment1.target=Supplier(int,\ java.lang.String,\ java.lang.String,\ Location)
+comment1.params=name\ email\ phoneNumber\ location
+comment1.target=Supplier(java.lang.String,\ java.lang.String,\ java.lang.String,\ Location)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Item\r\n
 comment10.params=phoneNumber
 comment10.target=void\ setPhoneNumber(java.lang.String)

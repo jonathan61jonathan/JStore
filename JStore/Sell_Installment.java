@@ -63,8 +63,10 @@ class Sell_Installment extends Invoice {
                 "\nPrice Total = "+getTotalPrice()+
                 "\nCustomer ID = "+getCustomer().getId()+
                 "\nSupplier Name = "+getCustomer().getName()+
+                "\nIsActive = "+ getIsActive()+
                 "\nStatus = INSTALLMENT"+
-                "\n Sell success";
+                "\n Sell success"+
+                "\n----------------------------------\n\n";
 
         return re;
     }

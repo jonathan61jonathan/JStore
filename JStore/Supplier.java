@@ -27,6 +27,7 @@ public class Supplier
         setEmail(email);
         setPhoneNumber(phoneNumber);
         setLocation(location);
+        setId(DatabaseSupplier.getLastSupplierID()+1);
     }
     /**
      * Method getId

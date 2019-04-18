@@ -1,15 +1,15 @@
 #BlueJ class context
 comment0.target=Sell_Installment
-comment1.params=id\ item\ totalItem\ installmentPeriod\ customer
-comment1.target=Sell_Installment(int,\ Item,\ int,\ int,\ Customer)
-comment2.params=
-comment2.target=InvoiceStatus\ getInvoiceStatus()
+comment1.params=invoiceStatus
+comment1.target=void\ setInvoiceStatus(InvoiceStatus)
+comment2.params=item\ customer\ installmentPeriod
+comment2.target=Sell_Installment(java.util.ArrayList,\ Customer,\ int)
 comment3.params=
-comment3.target=InvoiceType\ getInvoiceType()
+comment3.target=InvoiceStatus\ getInvoiceStatus()
 comment4.params=
-comment4.target=Customer\ getCustomer()
-comment5.params=status
-comment5.target=void\ setInvoiceStatus(InvoiceStatus)
+comment4.target=InvoiceType\ getInvoiceType()
+comment5.params=
+comment5.target=Customer\ getCustomer()
 comment6.params=totalPrice
 comment6.target=void\ setInstallmentPrice(int)
 comment7.params=

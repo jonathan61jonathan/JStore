@@ -50,8 +50,10 @@ class Sell_Paid extends Invoice {
          re+=   "\nBuyDate = "+getDate()+
                 "\nCustomer ID = "+getCustomer().getId()+
                 "\nSupplier Name = "+getCustomer().getName()+
+                "\nIsActive = "+ getIsActive()+
                 "\nStatus = PAID"+
-                "\nSell success";
+                "\nSell success"+
+                "\n----------------------------------\n\n";
 
         return re;
     }

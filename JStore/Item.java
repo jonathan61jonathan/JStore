@@ -30,6 +30,7 @@ public class Item
         setPrice(price);
         setCategory(category);
         setSupplier(supplier);
+        setId(DatabaseItem.getLastItemID()+1);
     }
     /**
      * Method getId
