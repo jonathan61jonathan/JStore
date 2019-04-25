@@ -50,16 +50,25 @@ public class DatabaseInvoice
         return null;
     }
 
-    public static Invoice getActiveOrder(Customer customer) throws CustomerDoesntHaveActiveInvoiceException
-    {
-        for(Invoice invoice:
-            INVOICE_DATABASE) {
-            if((invoice.getCustomer() == customer) && (invoice.getInvoiceStatus() == InvoiceStatus.Unpaid)) {
-                return invoice;
+
+    public static ArrayList<Invoice> getActiveOrder(Customer customer)
+            throws CustomerDoesntHaveActiveInvoiceException{
+        ArrayList<Invoice> res = new ArrayList<Invoice>();
+        for(Invoice invoice : INVOICE_DATABASE){
+            if( (invoice.getCustomer() == customer)  && ((invoice.getInvoiceStatus() == InvoiceStatus.Unpaid) || (invoice.getInvoiceStatus() == InvoiceStatus.Installment)) ){
+                res.add(invoice);
             }
         }
-        throw new CustomerDoesntHaveActiveInvoiceException(customer);
+        if(res.size() > 0){
+            return res;
+        }
+        else{
+            throw new CustomerDoesntHaveActiveInvoiceException(customer);
+//            return null;
+        }
+
     }
+
 
     public static boolean removeInvoice(int id) throws InvoiceNotFoundException
     {

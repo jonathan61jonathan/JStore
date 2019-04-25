@@ -2,7 +2,7 @@ package jstore;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-class Sell_Paid extends Invoice {
+public class Sell_Paid extends Invoice {
     private static InvoiceType INVOICE_TYPE= InvoiceType.Sell;
     private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
 

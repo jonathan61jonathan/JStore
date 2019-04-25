@@ -2,7 +2,7 @@ package jstore;
 
 import java.util.ArrayList;
 
-class Buy_Paid extends Invoice {
+public class Buy_Paid extends Invoice {
     private static InvoiceType INVOICE_TYPE= InvoiceType.Buy;
     private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
 

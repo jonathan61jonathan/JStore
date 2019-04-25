@@ -30,6 +30,8 @@ public class Jstore
         DatabaseSupplier.addSupplier(supplier);
         Supplier supplier2 = new Supplier("jojo jojo","jojojojo@gmail.com", "08576592222", location1);
         DatabaseSupplier.addSupplier(supplier2);
+        Supplier supplier3 = new Supplier("jaja haha","jajahaha@gmail.com", "08576592232", location1);
+        DatabaseSupplier.addSupplier(supplier3);
 
         Item barang = new Item("Water Heater", 10, ItemStatus.New, 500000, ItemCategory.Electronics, supplier);
         DatabaseItem.addItem(barang);
@@ -368,6 +370,61 @@ public class Jstore
             System.out.println("\n");
         }
         */
+
+        Location bebas = new Location ("Bebas", "bebas", "bebas");
+
+        try{
+            DatabaseSupplier.addSupplier(new Supplier("supp1", "supp1@gmail.com", "081230423123", bebas));
+        }catch (SupplierAlreadyExistsException ex){
+            System.out.println("EXCEPTION=SupplierAlreadyExistsException===========================");
+            System.out.println(ex.getExMessage());
+            System.out.println("\n");
+        }
+        try{
+            DatabaseSupplier.addSupplier(new Supplier("supp2", "supp2@gmail.com", "082340423123", bebas));
+        }catch (SupplierAlreadyExistsException ex){
+            System.out.println("EXCEPTION=SupplierAlreadyExistsException===========================");
+            System.out.println(ex.getExMessage());
+            System.out.println("\n");
+        }
+        try{
+            DatabaseSupplier.addSupplier(new Supplier("supp3", "supp3@gmail.com", "081223423123", bebas));
+        }catch (SupplierAlreadyExistsException ex){
+            System.out.println("EXCEPTION=SupplierAlreadyExistsException===========================");
+            System.out.println(ex.getExMessage());
+            System.out.println("\n");
+        }
+        System.out.println(DatabaseSupplier.getSupplierDatabase());
+        try{
+            DatabaseItem.addItem(new Item("Water Heater", ItemStatus.New, 500000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
+        }catch(ItemAlreadyExistsException ex){
+            System.out.println("EXCEPTION=ItemAlreadyExistsException===========================");
+            System.out.println(ex.getExMessage());
+            System.out.println("\n");
+        }
+        try{
+            DatabaseItem.addItem(new Item("Water Dispenser", ItemStatus.New, 50000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
+        }catch(ItemAlreadyExistsException ex){
+            System.out.println("EXCEPTION=ItemAlreadyExistsException===========================");
+            System.out.println(ex.getExMessage());
+            System.out.println("\n");
+        }
+        try{
+            DatabaseItem.addItem(new Item("Juicer", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
+        }catch(ItemAlreadyExistsException ex){
+            System.out.println("EXCEPTION=ItemAlreadyExistsException===========================");
+            System.out.println(ex.getExMessage());
+            System.out.println("\n");
+        }
+        try{
+            DatabaseItem.addItem(new Item("Juicer11", ItemStatus.New, 50000, DatabaseSupplier.getSupplier(1), ItemCategory.Electronics));
+        }catch(ItemAlreadyExistsException ex){
+            System.out.println("EXCEPTION=ItemAlreadyExistsException===========================");
+            System.out.println(ex.getExMessage());
+            System.out.println("\n");
+        }
+
+
         SpringApplication.run(Jstore.class, args);
     }
 }
