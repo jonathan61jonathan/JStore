@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">JStore_Android_Jonathan</string>
+    <string name="password">Password</string>
+    <string name="email_email_com">Email@Email.com</string>
+    <string name="log_in">Log In</string>
+    <string name="full_name">Full Name</string>
+    <string name="user_name">User Name</string>
+    <string name="register">Register</string>
+    <string name="title_activity_buat_pesanan">BuatPesananActivity</string>
+    <string name="appbar_scrolling_view_behavior">
+        android.support.design.widget.AppBarLayout$ScrollingVierwBehavior
+    </string>
+    <string name="item_name">Item Name</string>
+    <string name="title_activity_selesai_pesanan">SelesaiPesananActivity</string>
+    <string name="pesanan">PESANAN</string>
+    <string name="history" />
+</resources>

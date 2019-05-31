@@ -69,6 +69,24 @@ public class DatabaseInvoice
 
     }
 
+    public static ArrayList<Invoice> getAllOrder(Customer customer)
+            throws CustomerDoesntHaveActiveInvoiceException{
+        ArrayList<Invoice> res = new ArrayList<Invoice>();
+        for(Invoice invoice : INVOICE_DATABASE){
+            if (invoice.getCustomer() == customer){
+                res.add(invoice);
+            }
+        }
+        if(res.size() > 0){
+            return res;
+        }
+        else{
+            throw new CustomerDoesntHaveActiveInvoiceException(customer);
+//            return null;
+        }
+
+    }
+
 
     public static boolean removeInvoice(int id) throws InvoiceNotFoundException
     {

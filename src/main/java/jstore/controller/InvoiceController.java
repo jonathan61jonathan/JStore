@@ -25,6 +25,16 @@ public class InvoiceController {
         }
     }
 
+    @RequestMapping("/allinvoicecustomer/{id_customer}")
+    public ArrayList<Invoice> invoiceAllCust(@PathVariable int id_customer) {
+        try {
+            ArrayList<Invoice> invoicelist = DatabaseInvoice.getAllOrder(DatabaseCustomer.getCustomer(id_customer));
+            return invoicelist;
+        }catch (CustomerDoesntHaveActiveInvoiceException ex){
+            return null;
+        }
+    }
+
     @RequestMapping("/invoice/{id_invoice}")
     public Invoice getInvoice(@PathVariable int id_invoice) {
         Invoice invoice = DatabaseInvoice.getInvoice(id_invoice);
